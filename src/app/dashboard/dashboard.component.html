@@ -1,0 +1,92 @@
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 column-card">
+				<div class="card-title">{{semesterTitle}}</div>
+
+				<div class="scrollList">
+					<div *ngFor="let semester of semesterResponse?.data">
+						<div class="card-item">
+
+							<div class="semeter-title">{{semester.title}}</div>
+
+							<div [ngStyle]="{'color': semester.status == 'active'? 'green' : 'red'}"
+								class="semeter-status">
+								{{semester.status}}
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-4 col-md-6 column-card bg-dark">
+				<div class="card-title">{{subjectTitle}}</div>
+				<div class="scrollList">
+					<div *ngFor="let semester of courseResponse?.data">
+						<div class="card-item">
+
+							<div class="subject-content">
+								<div class="semeter-title">{{semester.title}}</div>
+
+								<div class="credits">
+									credits: {{semester.credits}}
+								</div>
+							</div>
+
+							<div [ngStyle]="{'color': semester.status == 'active'? 'green' : 'red'}"
+								class="semeter-status">
+								{{semester.status}}
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 column-card bg-dark">
+				<div class="card-title">{{assignedCourses}}</div>
+				<div class="scrollList">
+					<div *ngFor="let item of assignedCoursesRespons?.data">
+						<div class="assigned-course-card-item">
+
+							<div class="assigned-course-top">
+								<img src="data:image/png;base64,{{item.student.image}}"/>
+
+								<div class="user-info">
+									<div class="user-name">
+										{{item.student.name}}
+									</div>
+	
+									<div class="user-roll">
+										{{item.student.roll_no}}
+									</div>
+								</div>
+
+							</div>
+
+							<div class="assigned-course-semster-title">
+								Semester: {{item.semester.title}}
+							</div>
+							<div class="assigned-course">
+								<div class="title">Course: {{item.course.title}}</div>
+								<div class="credits">Credits: {{item.course.credits}}</div>
+
+							</div>
+
+							<div class="assigned-course-bottom">
+								<div class="assigned-course-date">{{item.created_at | date : 'hh:mm a | dd MMM, yyy'}}</div>
+								<div [ngStyle]="{'color': item.status == 'approved'? 'green' : 'red'}"
+									class="assigned-course-status">
+									{{item.status}}
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

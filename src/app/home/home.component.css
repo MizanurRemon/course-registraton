@@ -1,0 +1,26 @@
+.nav-link {
+  color: white;
+}
+
+.nav-link :hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-name {
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.rounded-circle{
+  object-fit: cover; /* Do not scale the image */
+  object-position: center;
+}

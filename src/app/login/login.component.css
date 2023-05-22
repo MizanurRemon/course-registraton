@@ -1,0 +1,25 @@
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+  background-color: rgb(222, 222, 222);
+  border-radius: 2%;
+  padding: 15px;
+  height: min-content;
+  min-width: 450px;
+  max-width: 500px;
+}
+
+.login-card h1{
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+.login-card form .checkbox{
+    padding-top: 10px;
+}

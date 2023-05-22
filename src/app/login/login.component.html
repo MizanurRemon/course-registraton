@@ -1,0 +1,39 @@
+<div class="container ">
+    <div class="login-card">
+        <main class="form-signin w-100 m-auto">
+            <form #loginForm="ngForm" (ngSubmit)="signIn(roll_no.value)">
+                <h1 class="h3 mb-3  text-center">Student Login</h1>
+        
+                <div class="form-floating">
+                    <input #roll_no type="text"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="roll no" maxlength="6" ngModel required>
+
+                        
+                    <label for="floatingInput">Enter roll no </label>
+                </div>
+
+                <div class="error-control" *ngIf="validation.error">
+                    {{validation.message}}
+                </div>
+
+                <div class="success-control" *ngIf="validation.success">
+                    {{validation.message}}
+                </div>
+        
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox"
+                            value="remember-me">
+                        Remember me
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary"
+                    type="submit" [disabled]="loginForm.invalid">
+                    Sign in
+                </button>
+            </form>
+        </main>
+    </div>
+</div>
