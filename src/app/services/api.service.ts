@@ -7,6 +7,7 @@ import { StudentResponse } from '../model/student.model';
 import { CookieService } from 'ngx-cookie-service';
 import { CourseResponse } from '../model/courses.model';
 import { AssignedCoursesResponses } from '../model/assignedCourses.model';
+import { CommonResponse } from '../model/common.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class ApiService {
   private GET_STUDENT_INFO = "student_info"
   private GET_COURSES = "courses"
   private GET_REGISTERED_COURSES = "get_registered_courses"
+  private COURSE_REGISTRATION = "course_registration"
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -68,5 +70,15 @@ export class ApiService {
   getRegisteredCourse(): Observable<AssignedCoursesResponses> {
     let headers = this.createAuthorizationHeader();
     return this.http.get<AssignedCoursesResponses>(this.BASE_URL_API + this.GET_REGISTERED_COURSES, { headers });
+  }
+
+  courseRegistration(studentID: any, courseID: any, semesterID: any): Observable<CommonResponse> {
+    let headers = this.createAuthorizationHeader();
+    var formData: any = new FormData();
+    formData.append('student_id', studentID);
+    formData.append('course_id', courseID);
+    formData.append('semester_id', semesterID);
+
+    return this.http.post<CommonResponse>(this.BASE_URL_API + this.COURSE_REGISTRATION, formData, { headers })
   }
 }

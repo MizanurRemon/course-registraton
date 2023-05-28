@@ -9,20 +9,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './home/home.component';
+import {NgOptimizedImage} from "@angular/common";
+import { CourseApplyComponent } from './course-apply/course-apply.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    CourseApplyComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

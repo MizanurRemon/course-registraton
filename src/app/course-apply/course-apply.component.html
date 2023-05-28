@@ -1,0 +1,57 @@
+<div class="container ">
+	<div class="card col-lg-5 col-md-8">
+		<main class="form-signin w-100 m-auto">
+			<form #loginForm="ngForm"
+				(ngSubmit)="courseApply()">
+				<h1 class="h3 mb-3 title">{{title}}</h1>
+
+				<!-- <div class="form-floating">
+                    <input #roll_no type="text"
+                        class="form-control"
+                        id="floatingInput"
+                        placeholder="roll no" maxlength="6" ngModel required>
+
+                        
+                    <label for="floatingInput">Enter roll no </label>
+                </div> -->
+
+				<label class="col-sm-4 dropdown-title">Semester</label>
+
+				<div class="col-sm-12">
+
+					<select (change)="getSemesterID($event)"
+						name="semester"
+						class="form-control dropdown-content">
+						<option [value]="0">none</option>
+						<option *ngFor="let item of semesterResponse?.data"
+							[value]="item.id">
+							{{item.title}}
+						</option>
+					</select>
+				</div>
+
+				<label class="col-sm-4 dropdown-title">Courses</label>
+
+				<div class="col-sm-12">
+
+					<select (change)="getCourseID($event)"
+						name="semester"
+						class="form-control dropdown-content">
+						<option [value]="0">none</option>
+						<option *ngFor="let item of courseResponse?.data"
+							[value]="item.id">
+							{{item.title}}
+						</option>
+					</select>
+				</div>
+
+				<!-- [disabled]="loginForm.invalid" -->
+				<button class="w-100 btn btn-lg btn-primary submit-button"
+					type="submit">
+					Apply
+				</button>
+			</form>
+		</main>
+	</div>
+
+</div>

@@ -15,22 +15,22 @@
 
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 					<li>
-						<a href="#"
-							class="nav-link px-2 link-secondary">
+						<a (click)="changeItem('dashboard')"
+							class="nav-link px-2 link-secondary header-item">
 							Home
 						</a>
 					</li>
 					<li>
-						<a href="#"
-							class="nav-link px-2 link-body-emphasis">
-							Choose Course
+						<a (click)="changeItem('course_apply')"
+							class="nav-link px-2 link-body-emphasis header-item">
+							Course Apply
 						</a>
 					</li>
 				</ul>
 
 				<!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-			  <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-			</form> -->
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      </form> -->
 
 				<div class="user-info">
 					<div class="user-name">
@@ -84,4 +84,10 @@
 	</header>
 </div>
 
-<app-dashboard></app-dashboard>
+<ng-container *ngIf="selectedItem == 'dashboard'">
+	<app-dashboard></app-dashboard>
+</ng-container>
+
+<ng-container *ngIf="selectedItem == 'course_apply'">
+	<app-course-apply></app-course-apply>
+</ng-container>

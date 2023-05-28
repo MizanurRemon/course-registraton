@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   token: any;
 
   studentResponse?: StudentResponse
+
+  selectedItem : any = "dashboard"
   
 
   ngOnInit(): void {
@@ -43,5 +45,8 @@ export class HomeComponent implements OnInit {
   }
 
  
+  changeItem(text: any){
+    this.selectedItem = text
+  }
 
 }
